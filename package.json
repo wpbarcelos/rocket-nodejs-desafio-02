@@ -1,4 +1,14 @@
 {
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "test": "vitest",
+    "knex": "tsx ./node_modules/knex/bin/cli.js --knexfile ./knexfile.ts",
+    "migrate": "npm run knex -- migrate:latest",
+    "migrate:make": "tsx ./node_modules/knex/bin/cli.js --knexfile ./knexfile.ts migrate:make"
+  },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "dotenv": "^17.2.3",
@@ -13,6 +23,8 @@
     "@types/node": "^25.0.3",
     "@types/supertest": "^6.0.3",
     "eslint": "^8.57.1",
+    "sqlite3": "^5.1.7",
+    "supertest": "^7.2.2",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
